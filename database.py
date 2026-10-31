@@ -9,3 +9,4 @@ DB_URL = (f"postgresql+psycopg://{os.getenv('DB_USER')}:"
           f"/{os.getenv('DB_NAME')}"
 )
 engine=create_engine(DB_URL, echo=True)
+

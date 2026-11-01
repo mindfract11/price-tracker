@@ -27,7 +27,7 @@ try:
             print("Database check === The record is indeed missing.")
 
     print("\n=== STEP 4: Creating an empty product and fetching the list ===")
-    create_product(session, name="", current_price=1500.0, target_price=1200.0, url="")
+    create_product(session, name="test_product", current_price=1500.0, target_price=1200.0, url="https://example.com/product-1")
 
     all_products = get_all_products(session)
     print("--------- Products ---------")

@@ -2,8 +2,9 @@ from sqlalchemy.orm import Session
 from sqlalchemy import select
 from sqlalchemy.exc import IntegrityError
 from models import Product
+from decimal import Decimal
 
-def create_product(session: Session, name: str, current_price: float, target_price: float, url: str) -> Product:
+def create_product(session: Session, name: str, current_price: Decimal, target_price: Decimal, url: str) -> Product:
     if not name or not name.strip():
         raise ValueError("Title cannot be empty")
 
@@ -28,7 +29,7 @@ def get_all_products(session: Session) -> list[Product]:
 def get_product_by_id(session: Session, product_id: int) -> Product | None:
     return session.get(Product, product_id)
 
-def update_product_target_price(session: Session, product_id: int, new_price: float) -> Product | None:
+def update_product_target_price(session: Session, product_id: int, new_price: Decimal) -> Product | None:
     if new_price < 0:
         raise ValueError("new_price cannot be negative")
     product = session.get(Product, product_id)

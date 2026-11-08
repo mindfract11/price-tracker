@@ -9,6 +9,6 @@ class Product(Base):
     __tablename__ = "product"
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
     name: Mapped[str] = mapped_column(Text)
-    current_price: Mapped[Decimal] = mapped_column(Numeric)
-    target_price: Mapped[Decimal] = mapped_column(Numeric)
+    current_price: Mapped[Decimal] = mapped_column(Numeric(10,2), nullable=False)
+    target_price: Mapped[Decimal] = mapped_column(Numeric(10,2), nullable=False)
     url: Mapped[str | None] = mapped_column(Text, nullable=True)
